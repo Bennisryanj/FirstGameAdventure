@@ -4,7 +4,7 @@ using System;
 public partial class Enemie : CharacterBody2D
 {
 
-	public const float Speed = 1;
+	public const float Speed = 100;
 	private AnimatedSprite2D sprite2d; 
 
 	  public override void _Ready()
@@ -24,21 +24,19 @@ public partial class Enemie : CharacterBody2D
 		sprite2d.Animation = "default";
 
 		Vector2 direction = Vector2.Right;
-		if (direction != Vector2.Zero)
-		{
-			velocity.X = direction.X * Speed;
-		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		}
 
-		Velocity = velocity;
+		// Check for collisions using move_and_slide()
+		velocity.X = direction.X * Speed;
+		//MoveAndSlide();
+
+		// If you want to reverse the direction on collision, you can do additional checks here
+		// For example, you can check if is_on_wall() and reverse the direction accordingly.
+		//if (IsOnWall())
+		//{
+		//	direction = -direction;
+		//}
 		
-		
-		
-		
-		MoveAndSlide();
+
 		
 	}
 }
