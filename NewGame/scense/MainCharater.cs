@@ -24,16 +24,34 @@ public partial class MainCharater : CharacterBody2D
 		Vector2 velocity = Velocity;
  
 		// Animations
-		if (Math.Abs(velocity.X) > 1)
-			sprite2d.Animation = "running";
-		else
-			sprite2d.Animation = "default";
- 
-		// Add the gravity.
-		if (!IsOnFloor()) {
-			velocity.Y += gravity * (float)delta;
-			sprite2d.Animation = "Jumping";
+		 if (IsOnFloor())
+		{
+			// On the floor, check for running or default animation
+			if (Math.Abs(velocity.X) > 1)
+				sprite2d.Animation = "running";
+			else
+				sprite2d.Animation = "default";
 		}
+		else
+		{
+			if (jumpcount == 2)
+			{
+				sprite2d.Animation = "DoubleJump";
+			}else
+			{
+				sprite2d.Animation = "Jumping";
+				
+			}
+			// In the air, set the jumping animation
+			
+
+			// Check for double jump animation
+			
+
+			// Add gravity
+			velocity.Y += gravity * (float)delta;
+		}
+		
 
 		if (IsOnFloor())
 		{
@@ -45,6 +63,13 @@ public partial class MainCharater : CharacterBody2D
 		{
 			velocity.Y = JumpVelocity;
 			jumpcount += 1; 
+			
+		}
+		
+		if(jumpcount == 2)
+		{
+			sprite2d.Animation = "DoubleJump";
+			
 		}
 
 			

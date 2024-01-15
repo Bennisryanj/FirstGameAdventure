@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=3 uid="uid://eobmiyyr7x7c"]
+
+[ext_resource type="Texture2D" uid="uid://b8lqdc7p1ib8r" path="res://scense/On (38x38).png" id="1_bk4ig"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_rxbsd"]
+script/source = "using Godot;
+using System;
+
+public partial class saw : Area2D
+{
+	
+	private AnimatedSprite2D sprite2d; 
+	
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	sprite2d = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+		
+		sprite2d.Animation = \"default\";
+		
+	}
+}
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykobm"]
+radius = 28.0179
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28de0"]
+atlas = ExtResource("1_bk4ig")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xcq3"]
+atlas = ExtResource("1_bk4ig")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugvye"]
+atlas = ExtResource("1_bk4ig")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj0rx"]
+atlas = ExtResource("1_bk4ig")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrmar"]
+atlas = ExtResource("1_bk4ig")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7psij"]
+atlas = ExtResource("1_bk4ig")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw1ox"]
+atlas = ExtResource("1_bk4ig")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4ioj"]
+atlas = ExtResource("1_bk4ig")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7rwa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28de0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xcq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugvye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj0rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrmar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7psij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw1ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4ioj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Saw" type="Area2D"]
+script = SubResource("CSharpScript_rxbsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(331, 106)
+shape = SubResource("CircleShape2D_ykobm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(331, 107)
+scale = Vector2(1.34211, 1.44737)
+sprite_frames = SubResource("SpriteFrames_g7rwa")
+frame_progress = 0.441438

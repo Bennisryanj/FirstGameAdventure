@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd1rl661de1"]
+[gd_scene load_steps=14 format=3 uid="uid://cd1rl661de1"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_58iij"]
 [ext_resource type="Texture2D" uid="uid://dyxsyf5uhlome" path="res://Green.png" id="2_d1xth"]
@@ -9,25 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dxafelvf4wp4d" path="res://scense/MainCharater.tscn" id="6_yabmk"]
 [ext_resource type="Script" path="res://scense/MainCharater.cs" id="7_aox8c"]
 [ext_resource type="Script" path="res://scense/Pit.cs" id="9_y4u8t"]
-[ext_resource type="PackedScene" uid="uid://5u70ahj4te3u" path="res://scense/enemie.tscn" id="10_37yg0"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_m6tnl"]
-script/source = "using Godot;
-using System;
-
-public partial class SceneObjects : Node
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-
-}
-
-
-
-"
+[ext_resource type="PackedScene" uid="uid://bshslwf1w2c4t" path="res://Saw2.tscn" id="10_oxiog"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jo5ab"]
 texture = ExtResource("3_y6l7j")
@@ -491,7 +473,6 @@ unique_name_in_owner = true
 script = ExtResource("1_58iij")
 
 [node name="SceneObjects" type="Node" parent="."]
-script = SubResource("CSharpScript_m6tnl")
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
 texture_filter = 1
@@ -520,6 +501,7 @@ position = Vector2(208, 103.5)
 [node name="Area2D" parent="SceneObjects/Collectables" instance=ExtResource("5_0f5uc")]
 
 [node name="CharacterBody2D" parent="SceneObjects" instance=ExtResource("6_yabmk")]
+texture_filter = 1
 position = Vector2(-9, 9)
 script = ExtResource("7_aox8c")
 
@@ -533,6 +515,12 @@ script = ExtResource("9_y4u8t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneObjects/Pit"]
 position = Vector2(1060, 646.5)
 shape = SubResource("RectangleShape2D_4mofr")
+
+[node name="Saw" parent="SceneObjects" instance=ExtResource("10_oxiog")]
+position = Vector2(177, 95)
+
+[node name="Saw2" parent="SceneObjects" instance=ExtResource("10_oxiog")]
+position = Vector2(130, 95)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -555,8 +543,5 @@ text = "Total Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Enemie" parent="." instance=ExtResource("10_37yg0")]
-position = Vector2(-826, -82)
 
 [connection signal="body_entered" from="SceneObjects/Pit" to="SceneObjects/Pit" method="_on_body_entered"]

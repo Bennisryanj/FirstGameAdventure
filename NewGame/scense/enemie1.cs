@@ -21,21 +21,13 @@ public partial class Enemie : CharacterBody2D
 	{
 		Vector2 velocity = Velocity;
 		
-		sprite2d.Animation = "default";
-
-		Vector2 direction = Vector2.Right;
-
-		// Check for collisions using move_and_slide()
-		velocity.X = direction.X * Speed;
-		//MoveAndSlide();
-
-		// If you want to reverse the direction on collision, you can do additional checks here
-		// For example, you can check if is_on_wall() and reverse the direction accordingly.
-		//if (IsOnWall())
-		//{
-		//	direction = -direction;
-		//}
+		velocity.Y += gravity * (float)delta;
 		
+		velocity.X = -Speed;
+
+		MoveAndSlide();
+		GD.Print("Velocity:", velocity);
+		GD.Print("Position:", Position);
 
 		
 	}
