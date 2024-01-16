@@ -22,7 +22,7 @@ public partial class MainCharater : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
- 
+
 		// Animations
 		 if (IsOnFloor())
 		{
@@ -42,13 +42,6 @@ public partial class MainCharater : CharacterBody2D
 				sprite2d.Animation = "Jumping";
 				
 			}
-			// In the air, set the jumping animation
-			
-
-			// Check for double jump animation
-			
-
-			// Add gravity
 			velocity.Y += gravity * (float)delta;
 		}
 		
@@ -101,6 +94,7 @@ public partial class MainCharater : CharacterBody2D
 		Vector2 velocity = Velocity;
 		velocity.Y = JumpVelocity; 
 	}
+
 	
 	
 }

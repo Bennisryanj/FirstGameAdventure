@@ -330,7 +330,7 @@ scale = Vector2(1.84375, 1.95312)
 sprite_frames = SubResource("SpriteFrames_0l4l5")
 animation = &"DoubleJump"
 autoplay = "default"
-frame_progress = 0.369262
+frame_progress = 0.794673
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
