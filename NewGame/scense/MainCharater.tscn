@@ -1,9 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://dxafelvf4wp4d"]
+[gd_scene load_steps=54 format=3 uid="uid://dxafelvf4wp4d"]
 
 [ext_resource type="Texture2D" uid="uid://b76bpms3e7ruq" path="res://Jump (32x32).png" id="1_dpxmc"]
 [ext_resource type="Texture2D" uid="uid://cok0u5pvq4par" path="res://scense/Double Jump (32x32).png" id="1_ojgds"]
 [ext_resource type="Texture2D" uid="uid://ddrwrtylx3ywt" path="res://Idle (32x32).png" id="2_fhj30"]
 [ext_resource type="Texture2D" uid="uid://cnqn8lpekr2ub" path="res://Run (32x32).png" id="3_c5br1"]
+[ext_resource type="Texture2D" uid="uid://b43ilr4tn332w" path="res://scense/Wall Jump (32x32).png" id="3_kdy0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_luvde"]
 atlas = ExtResource("1_ojgds")
@@ -28,6 +29,26 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sc3cr"]
 atlas = ExtResource("1_ojgds")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrtc5"]
+atlas = ExtResource("3_kdy0r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiwsc"]
+atlas = ExtResource("3_kdy0r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2q4o"]
+atlas = ExtResource("3_kdy0r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m1ug"]
+atlas = ExtResource("3_kdy0r")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxpc1"]
+atlas = ExtResource("3_kdy0r")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vl8n4"]
 atlas = ExtResource("2_fhj30")
@@ -204,6 +225,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wrtc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiwsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2q4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m1ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxpc1")
+}],
+"loop": true,
+"name": &"WallJump",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vl8n4")
 }, {
 "duration": 1.0,
@@ -328,11 +369,10 @@ texture_filter = 1
 position = Vector2(95.5, 427.75)
 scale = Vector2(1.84375, 1.95312)
 sprite_frames = SubResource("SpriteFrames_0l4l5")
-animation = &"DoubleJump"
+animation = &"WallJump"
 autoplay = "default"
-frame_progress = 0.794673
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(95, 435.5)
+position = Vector2(93, 431)
 shape = SubResource("RectangleShape2D_t0pqq")

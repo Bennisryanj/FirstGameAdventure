@@ -7,7 +7,10 @@ public partial class MainCharater : CharacterBody2D
 	public const float JumpVelocity = -400.0f;
 	private AnimatedSprite2D sprite2d; 
 	public int jumpcount = 0; 
-	public int maxJump = 2; 
+	public int DoubleJump = 2;
+
+	public int maxJump = 3; 
+	public const float WallJumpPushBack = -100.0f;
 	
 	  public override void _Ready()
 	{
@@ -54,8 +57,30 @@ public partial class MainCharater : CharacterBody2D
 		
 		if (Input.IsActionJustPressed("jump") && jumpcount < maxJump)
 		{
+			 if (Input.IsActionPressed("right") && IsOnWall() && jumpcount < maxJump)
+		{
+			sprite2d.Animation = "WallJump";
+			GD.Print("you touched the wall");
 			velocity.Y = JumpVelocity;
-			jumpcount += 1; 
+			velocity.X = -WallJumpPushBack;
+			
+			jumpcount = 0;
+		}
+		else if (Input.IsActionPressed("left") && IsOnWall() && jumpcount < maxJump)
+		{
+			sprite2d.Animation = "WallJump";
+			GD.Print("you touched the wall");
+			velocity.Y = JumpVelocity;
+			velocity.X = WallJumpPushBack;
+			jumpcount = 0;
+		}
+		else if (!IsOnWall() && jumpcount < maxJump)
+		{
+			// Perform regular jump
+			GD.Print("NOT");
+			velocity.Y = JumpVelocity;
+			jumpcount++;
+		}
 			
 		}
 		
