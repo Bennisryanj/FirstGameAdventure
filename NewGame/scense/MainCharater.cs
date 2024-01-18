@@ -5,6 +5,8 @@ public partial class MainCharater : CharacterBody2D
 {
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
+
+	public const float wallGravityMod = 0.75f;
 	private AnimatedSprite2D sprite2d; 
 	public int jumpcount = 0; 
 	public int DoubleJump = 2;
@@ -35,6 +37,11 @@ public partial class MainCharater : CharacterBody2D
 			else
 				sprite2d.Animation = "default";
 		}
+		else if(IsOnWall())
+		{
+		sprite2d.Animation = "WallJump";
+
+		}
 		else
 		{
 			if (jumpcount == 2)
@@ -53,24 +60,28 @@ public partial class MainCharater : CharacterBody2D
 		{
 			jumpcount = 0;
 		}
+
+		if (IsOnWall())
+		{
+
+			velocity.Y *= wallGravityMod;
+		}
 	
 		
 		if (Input.IsActionJustPressed("jump") && jumpcount < maxJump)
 		{
 			 if (Input.IsActionPressed("right") && IsOnWall() && jumpcount < maxJump)
 		{
-			sprite2d.Animation = "WallJump";
 			GD.Print("you touched the wall");
-			velocity.Y = JumpVelocity;
+			velocity.Y = JumpVelocity + 100;
 			velocity.X = -WallJumpPushBack;
 			
 			jumpcount = 0;
 		}
 		else if (Input.IsActionPressed("left") && IsOnWall() && jumpcount < maxJump)
 		{
-			sprite2d.Animation = "WallJump";
 			GD.Print("you touched the wall");
-			velocity.Y = JumpVelocity;
+			velocity.Y = JumpVelocity + 100;
 			velocity.X = WallJumpPushBack;
 			jumpcount = 0;
 		}
