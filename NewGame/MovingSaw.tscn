@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://p5l5rq82fmoh"]
+
+[ext_resource type="Script" path="res://scense/PathFollow2D.cs" id="1_eu88p"]
+[ext_resource type="PackedScene" uid="uid://bshslwf1w2c4t" path="res://Saw2.tscn" id="2_pnahp"]
+
+[sub_resource type="Curve2D" id="Curve2D_yep83"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 375, 450, 0, 0, 0, 0, 577, 451, 0, 0, 0, 0, 576, 310, 0, 0, 0, 0, 377, 310, 0, 0, 0, 0, 373, 449)
+}
+point_count = 5
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_yep83")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+texture_filter = 1
+position = Vector2(375, 450)
+rotates = false
+cubic_interp = false
+script = ExtResource("1_eu88p")
+
+[node name="Saw3" parent="PathFollow2D" instance=ExtResource("2_pnahp")]
+position = Vector2(-657.946, -363)
