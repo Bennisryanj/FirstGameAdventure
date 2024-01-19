@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_yep83"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 375, 450, 0, 0, 0, 0, 577, 451, 0, 0, 0, 0, 576, 310, 0, 0, 0, 0, 377, 310, 0, 0, 0, 0, 373, 449)
+"points": PackedVector2Array(0, 0, 0, 0, 581.976, 598.6, 0, 0, 0, 0, 647.326, 598.6, 0, 0, 0, 0, 694.132, 602.06, 0, 0, 0, 0, 589.924, 602.06, 0, 0, 0, 0, 586.391, 599.465)
 }
 point_count = 5
 
@@ -14,7 +14,7 @@ curve = SubResource("Curve2D_yep83")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 texture_filter = 1
-position = Vector2(375, 450)
+position = Vector2(581.976, 598.6)
 rotates = false
 cubic_interp = false
 script = ExtResource("1_eu88p")
