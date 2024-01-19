@@ -63,35 +63,18 @@ public partial class MainCharater : CharacterBody2D
 
 		if (IsOnWall())
 		{
-
 			velocity.Y *= wallGravityMod;
+			jumpcount = 0;
+
 		}
 	
 		
 		if (Input.IsActionJustPressed("jump") && jumpcount < maxJump)
 		{
-			 if (Input.IsActionPressed("right") && IsOnWall() && jumpcount < maxJump)
-		{
-			GD.Print("you touched the wall");
-			velocity.Y = JumpVelocity + 100;
-			velocity.X = -WallJumpPushBack;
-			
-			jumpcount = 0;
-		}
-		else if (Input.IsActionPressed("left") && IsOnWall() && jumpcount < maxJump)
-		{
-			GD.Print("you touched the wall");
-			velocity.Y = JumpVelocity + 100;
-			velocity.X = WallJumpPushBack;
-			jumpcount = 0;
-		}
-		else if (!IsOnWall() && jumpcount < maxJump)
-		{
+
 			// Perform regular jump
-			GD.Print("NOT");
 			velocity.Y = JumpVelocity;
 			jumpcount++;
-		}
 			
 		}
 		
