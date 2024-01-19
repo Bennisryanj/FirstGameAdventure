@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c64jejgcjho7v"]
+[gd_scene load_steps=16 format=3 uid="uid://cpndffym1jrqg"]
 
 [ext_resource type="Script" path="res://scense/Platform.cs" id="1_ajdn3"]
-[ext_resource type="Texture2D" path="res://scense/Brown Off.png" id="2_13fea"]
-[ext_resource type="Texture2D" path="res://scense/Brown On (32x8).png" id="3_dvkvt"]
+[ext_resource type="Texture2D" uid="uid://dt3kwj66xhl74" path="res://scense/Brown Off.png" id="2_13fea"]
+[ext_resource type="Texture2D" uid="uid://cllvrxfvf4143" path="res://scense/Brown On (32x8).png" id="3_dvkvt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kgf5g"]
 

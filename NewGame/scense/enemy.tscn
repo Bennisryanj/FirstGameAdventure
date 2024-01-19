@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b4mm6nbr37fa8"]
+[gd_scene load_steps=29 format=3 uid="uid://cjreopkflrs6a"]
 
 [ext_resource type="Script" path="res://scense/EnemyPath.cs" id="1_prymk"]
 [ext_resource type="Script" path="res://scense/EnemyBody.cs" id="2_7kii4"]

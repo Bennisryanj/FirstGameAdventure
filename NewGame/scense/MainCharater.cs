@@ -5,9 +5,14 @@ public partial class MainCharater : CharacterBody2D
 {
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
+
+	public const float wallGravityMod = 0.75f;
 	private AnimatedSprite2D sprite2d; 
 	public int jumpcount = 0; 
-	public int maxJump = 2; 
+	public int DoubleJump = 2;
+
+	public int maxJump = 3; 
+	public const float WallJumpPushBack = -100.0f;
 	
 	  public override void _Ready()
 	{
@@ -22,7 +27,7 @@ public partial class MainCharater : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
- 
+
 		// Animations
 		 if (IsOnFloor())
 		{
@@ -31,6 +36,11 @@ public partial class MainCharater : CharacterBody2D
 				sprite2d.Animation = "running";
 			else
 				sprite2d.Animation = "default";
+		}
+		else if(IsOnWall())
+		{
+		sprite2d.Animation = "WallJump";
+
 		}
 		else
 		{
@@ -42,13 +52,6 @@ public partial class MainCharater : CharacterBody2D
 				sprite2d.Animation = "Jumping";
 				
 			}
-			// In the air, set the jumping animation
-			
-
-			// Check for double jump animation
-			
-
-			// Add gravity
 			velocity.Y += gravity * (float)delta;
 		}
 		
@@ -57,12 +60,21 @@ public partial class MainCharater : CharacterBody2D
 		{
 			jumpcount = 0;
 		}
+
+		if (IsOnWall())
+		{
+			velocity.Y *= wallGravityMod;
+			jumpcount = 0;
+
+		}
 	
 		
 		if (Input.IsActionJustPressed("jump") && jumpcount < maxJump)
 		{
+
+			// Perform regular jump
 			velocity.Y = JumpVelocity;
-			jumpcount += 1; 
+			jumpcount++;
 			
 		}
 		
@@ -101,6 +113,7 @@ public partial class MainCharater : CharacterBody2D
 		Vector2 velocity = Velocity;
 		velocity.Y = JumpVelocity; 
 	}
+
 	
 	
 }
