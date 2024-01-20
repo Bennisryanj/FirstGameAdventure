@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cjreopkflrs6a"]
+[gd_scene load_steps=29 format=3 uid="uid://b4mm6nbr37fa8"]
 
 [ext_resource type="Script" path="res://scense/EnemyPath.cs" id="1_prymk"]
 [ext_resource type="Script" path="res://scense/EnemyBody.cs" id="2_7kii4"]
@@ -179,7 +179,7 @@ size = Vector2(25, 23)
 curve = SubResource("Curve2D_pa1jg")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(-1.29169, -21.6)
+position = Vector2(-1.29205, -21.6)
 rotation = 0.00861492
 progress = 162.293
 rotates = false

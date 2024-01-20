@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://p5l5rq82fmoh"]
+[gd_scene load_steps=4 format=3 uid="uid://221avdl5o6my"]
 
 [ext_resource type="Script" path="res://scense/PathFollow2D.cs" id="1_eu88p"]
 [ext_resource type="PackedScene" uid="uid://bshslwf1w2c4t" path="res://Saw2.tscn" id="2_pnahp"]
