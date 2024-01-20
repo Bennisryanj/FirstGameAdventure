@@ -16,8 +16,7 @@ public partial class EnemyBody : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-			Vector2 velocity = Velocity;
-			if (Math.Abs(velocity.X) > 1)
+
 				sprite2d.Animation = "running";
 			
 	
