@@ -173,7 +173,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh8hp"]
-size = Vector2(25, 23)
+size = Vector2(25, 20.5971)
 
 [node name="Enemy" type="Path2D"]
 curve = SubResource("Curve2D_pa1jg")
@@ -186,7 +186,7 @@ rotates = false
 cubic_interp = false
 script = ExtResource("1_prymk")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="PathFollow2D"]
+[node name="CharacterBody2D" type="Area2D" parent="PathFollow2D"]
 script = ExtResource("2_7kii4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/CharacterBody2D"]
@@ -196,9 +196,12 @@ animation = &"running"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
-position = Vector2(1.5, 1.5)
+position = Vector2(1.5, 0.298546)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_oh8hp")
 
 [node name="_Timer_37894" type="Timer" parent="PathFollow2D"]
 wait_time = 0.2
 one_shot = true
+
+[connection signal="body_entered" from="PathFollow2D/CharacterBody2D" to="PathFollow2D/CharacterBody2D" method="_on_body_entered"]

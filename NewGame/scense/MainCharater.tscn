@@ -360,7 +360,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0pqq"]
-size = Vector2(40, 47)
+size = Vector2(36, 45)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
@@ -374,5 +374,5 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(93, 431)
+position = Vector2(92, 431.5)
 shape = SubResource("RectangleShape2D_t0pqq")
