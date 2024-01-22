@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cd1rl661de1"]
+[gd_scene load_steps=18 format=3 uid="uid://cd1rl661de1"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_58iij"]
 [ext_resource type="Texture2D" uid="uid://dyxsyf5uhlome" path="res://Green.png" id="2_d1xth"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bshslwf1w2c4t" path="res://Saw2.tscn" id="10_oxiog"]
 [ext_resource type="PackedScene" uid="uid://221avdl5o6my" path="res://MovingSaw.tscn" id="11_yg3fi"]
 [ext_resource type="PackedScene" uid="uid://cpndffym1jrqg" path="res://platform.tscn" id="11_yt0hd"]
+[ext_resource type="PackedScene" uid="uid://b4mm6nbr37fa8" path="res://scense/enemy.tscn" id="13_ngv1j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jo5ab"]
 texture = ExtResource("3_y6l7j")
@@ -557,6 +558,9 @@ position = Vector2(130, 95)
 [node name="Path2D" parent="SceneObjects" instance=ExtResource("11_yg3fi")]
 position = Vector2(-327, -237)
 scale = Vector2(1.13235, 1.15603)
+
+[node name="Enemy" parent="SceneObjects" instance=ExtResource("13_ngv1j")]
+position = Vector2(1485, -43)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

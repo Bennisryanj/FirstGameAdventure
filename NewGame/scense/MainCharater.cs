@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class MainCharater : CharacterBody2D
 {
@@ -13,6 +14,8 @@ public partial class MainCharater : CharacterBody2D
 
 	public int maxJump = 3; 
 	public const float WallJumpPushBack = -100.0f;
+	  private bool isSliding = false;
+	private Stopwatch timer = new Stopwatch();
 	
 	  public override void _Ready()
 	{
@@ -40,6 +43,26 @@ public partial class MainCharater : CharacterBody2D
 		else if(IsOnWall())
 		{
 		sprite2d.Animation = "WallJump";
+		GD.Print("ON thewall");
+
+			if (!timer.IsRunning)
+			{
+				timer.Start();
+			}
+
+			if (timer.Elapsed.TotalSeconds < 2)
+			{
+				velocity.Y *= wallGravityMod;
+			}
+			else
+			{
+				// Start sliding down the wall
+
+				isSliding = true;
+				GD.Print("Sliding");
+				timer.Stop();
+				timer.Reset();
+			}
 
 		}
 		else
@@ -52,19 +75,25 @@ public partial class MainCharater : CharacterBody2D
 				sprite2d.Animation = "Jumping";
 				
 			}
-			velocity.Y += gravity * (float)delta;
+
+			if (!isSliding)
+			{
+				velocity.Y += gravity * (float)delta;
+			}
 		}
 		
 
 		if (IsOnFloor())
 		{
 			jumpcount = 0;
+			isSliding = false;
 		}
 
-		if (IsOnWall())
+		if (isSliding)
 		{
-			velocity.Y *= wallGravityMod;
-			jumpcount = 0;
+			GD.Print("On the wall and slidign");
+		 velocity.Y += 1000.0f * (float)delta;
+		 jumpcount = 0;
 
 		}
 	
