@@ -197,7 +197,6 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
 position = Vector2(1.5, 0.298546)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_oh8hp")
 
 [node name="_Timer_37894" type="Timer" parent="PathFollow2D"]
