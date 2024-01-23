@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cd1rl661de1"]
+[gd_scene load_steps=31 format=3 uid="uid://cd1rl661de1"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_58iij"]
 [ext_resource type="Texture2D" uid="uid://dyxsyf5uhlome" path="res://Green.png" id="2_d1xth"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bshslwf1w2c4t" path="res://Saw2.tscn" id="10_oxiog"]
 [ext_resource type="PackedScene" uid="uid://221avdl5o6my" path="res://MovingSaw.tscn" id="11_yg3fi"]
 [ext_resource type="PackedScene" uid="uid://cpndffym1jrqg" path="res://platform.tscn" id="11_yt0hd"]
-[ext_resource type="PackedScene" uid="uid://b4mm6nbr37fa8" path="res://scense/enemy.tscn" id="13_ngv1j"]
+[ext_resource type="Texture2D" uid="uid://cu4eico4vdx2y" path="res://scense/Idle (32x32).png" id="13_5yi8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jo5ab"]
 texture = ExtResource("3_y6l7j")
@@ -470,6 +470,94 @@ sources/0 = SubResource("TileSetAtlasSource_jo5ab")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mofr"]
 size = Vector2(4927, 57)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhdic"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am7d8"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84hoq"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjg47"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d67kq"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl1f6"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj77y"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x7rq"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og12p"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6aaj"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4s0"]
+atlas = ExtResource("13_5yi8k")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85bc3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhdic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am7d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84hoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjg47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d67kq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl1f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj77y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x7rq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og12p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6aaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4s0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvt6l"]
+size = Vector2(19, 25)
+
 [node name="Node" type="Node"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -559,8 +647,18 @@ position = Vector2(130, 95)
 position = Vector2(-327, -237)
 scale = Vector2(1.13235, 1.15603)
 
-[node name="Enemy" parent="SceneObjects" instance=ExtResource("13_ngv1j")]
-position = Vector2(1485, -43)
+[node name="Area2D" type="Area2D" parent="SceneObjects"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SceneObjects/Area2D"]
+texture_filter = 1
+position = Vector2(-1.52588e-05, 1)
+scale = Vector2(0.96875, 1.03125)
+sprite_frames = SubResource("SpriteFrames_85bc3")
+frame_progress = 0.784718
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneObjects/Area2D"]
+position = Vector2(-0.5, 4.5)
+shape = SubResource("RectangleShape2D_wvt6l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
